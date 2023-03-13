@@ -31,3 +31,18 @@ class User:
         if self.login(name, password) and not self.balance:
             self.credentials.pop(name)
         return
+    
+    def register(self):
+        print("-----Bienvenido al Banco Tecmilenio-----")
+
+        print("Ingresa su correo")
+        email = input()
+       
+        if (User.credentials.get(email,False)):
+            print("Este correo ya está en uso")
+        else:
+            print("ingrese su contraseña")
+            password=input()
+            if(User.credentials.get(email,False)):
+                print("Su cuenta se ha creado correctamente")
+                User.credentials[email] = password
