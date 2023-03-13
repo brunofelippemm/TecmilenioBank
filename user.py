@@ -1,4 +1,7 @@
 class User:
+
+    credentials = {'name':'password'}
+
     def init(self):
         self.balance=0
 
@@ -13,9 +16,8 @@ class User:
         self.balance += deposit 
 
         print(f"your balance is: {self.balance}")
-
-
-
-
-Juan=User() 
-Juan.play()
+    
+    def delete(self, name, password):
+        if self.login(name, password) and not self.balance:
+            self.credentials.pop(name)
+        return
